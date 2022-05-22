@@ -5,6 +5,11 @@ The backend of the project -- https://github.com/Arkajit-techie/Self_Help_Group_
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Steps to run the project
+  1. Clone both the repositories
+  2. pip install the requirements.txt for the python app
+  3. npm start the react-front end
+ 
 ## Available Scripts
 
 In the project directory, you can run:
