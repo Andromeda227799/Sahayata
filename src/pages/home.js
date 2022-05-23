@@ -218,7 +218,6 @@ const Home = (props) => {
                 <option value="usa">USA</option>
               </select>
               <label htmlFor="subject">Subject</label>
-              
               <textarea
                 id="subject"
                 name="subject"
