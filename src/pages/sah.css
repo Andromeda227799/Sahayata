@@ -1380,6 +1380,7 @@ background-color: #06B58C; /* Green */
     top: 0px;
     left: 0px;
     overflow: hidden;
+    
   }
   .v60_492 {
     width: 100%;
@@ -1439,6 +1440,10 @@ input[type=text], select, textarea {
     background-color: #f2f2f2;
     padding: 20px;
     margin-top: 150px;
+    /* width:70%; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
 
