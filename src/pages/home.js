@@ -1,11 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import FetchEventUpdates from "../api/hooks/Home"
 import EventsAndUpsCard from "../comps/EventsAndUpsCard";
 import Navbar from "../comps/Navbar";
 import StoryOfTheDay from "../comps/StoryOfTheDay";
 import img from "./assets/unsplash_uO1MUMn0Xzc.png";
 import "./sah.css";
 const Home = (props) => {
+  const { homeEventsAndUpdates, homeStoryOfTheDay } = FetchEventUpdates();
+  const randomIndex = Math.floor(Math.random() * homeStoryOfTheDay.length);
+  console.log(" EVENT AND UPDATES CHECK ", homeEventsAndUpdates);
   return (
     <>
       <link rel="stylesheet" href="sah.css" />
@@ -21,7 +25,7 @@ const Home = (props) => {
       <title>sahayata</title>
       <Navbar />
       <section className="home">
-        <div className="container">
+        <div style={{marginLeft:"220px"}}>
           <div className="row">
             <div className="col-sm-6" id="textt">
               <span id="sm">#Money at your doorstep</span>
@@ -64,43 +68,34 @@ const Home = (props) => {
             transparency and traceability in the system by adding the
             authentication features as well.
           </span>
-          <StoryOfTheDay/>
+          <StoryOfTheDay
+            key={homeStoryOfTheDay[randomIndex].id}
+            story={homeStoryOfTheDay[randomIndex].info}
+          />
         </div>
       </section>
       <section className="events">
-        <div className="v60_322">
-          <div className="v60_323" />
-          <span className="v60_324">Events and updates</span>
-          <EventsAndUpsCard/>
-          <div className="v60_370">
-            <div className="v60_371" />
-            <span className="v60_372">
-              New self help groups were created in the district of Thar in
-              Rajasthan.
-            </span>
-            <div className="v60_373" />
-            <span className="v60_374">Read more</span>
-            <div className="v60_375">
-              <div className="v60_376" />
-              <div className="v60_377">
-                <div className="v60_378" />
-              </div>
-            </div>
-          </div>
-          <div className="v60_361">
-            <div className="v60_362" />
-            <span className="v60_363">
-              New self help groups were created in the district of Thar in
-              Rajasthan.
-            </span>
-            <div className="v60_364" />
-            <span className="v60_365">Read more</span>
-            <div className="v60_366">
-              <div className="v60_367" />
-              <div className="v60_368">
-                <div className="v60_369" />
-              </div>
-            </div>
+        <div className="home-events-container">
+          <a
+            style={{
+              fontSize: "32px",
+              fontFamily: "poppins",
+              fontWeight: "500",
+            }}
+          >
+            Events and updates
+          </a>
+          <div className="home-events-grid-container">
+            {homeEventsAndUpdates.map((item, id) => {
+              return (
+                <EventsAndUpsCard
+                  img={item.img}
+                  link={item.link}
+                  info={item.info}
+                  key={item.key}
+                />
+              );
+            })}
           </div>
         </div>
       </section>
@@ -112,24 +107,25 @@ const Home = (props) => {
           <div className="name" />
           <div className="v60_146">
             <span className="v60_147">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-              elit, vel quis.
+              across Karnataka, Bihar, and Madhya Pradesh found that found it
+              difficult to regularly update SHG transaction information due to
+              lack of proper resources.
             </span>
-            <span className="v60_148">86%</span>
+            <span className="v60_148">200 SHGs</span>
           </div>
           <div className="v60_385">
             <span className="v60_386">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-              elit, vel quis.
+              Households with self-help group members more likely to have formal
+              loans (largely driven by loans from self-help groups)
             </span>
-            <span className="v60_387">86%</span>
+            <span className="v60_387">8%</span>
           </div>
           <div className="v60_382">
             <span className="v60_383">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-              elit, vel quis.
+              Women in self-help groups also scored 6% more on average on the
+              empowerment index scale due to financial stability.
             </span>
-            <span className="v60_384">86%</span>
+            <span className="v60_384">6% increased score</span>
           </div>
           <div className="v60_379">
             <span className="v60_380">

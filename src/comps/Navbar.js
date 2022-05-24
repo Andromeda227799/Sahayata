@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import img from "../pages/assets/logo.png";
+import Button from "./Button";
 function Navbar() {
   return (
     <header className="Header_header__omCkM">
@@ -22,6 +23,9 @@ function Navbar() {
         <a href="" className="butt" id="butt">
           Join now
         </a>
+        {/* <div styles={{ position:"absolute",marginLeft: "425px"}}>
+        <Button styles={{left: "4025px"}} text={"Join Now"} ></Button>
+        </div> */}
         <img style={{marginLeft:"40px"}} src={img} alt="logo" id="nav5" />
       </div>
     </header>

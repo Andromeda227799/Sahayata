@@ -1,15 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-function StoryOfTheDay() {
+function StoryOfTheDay({link="",story}) {
   return (
     <div className="abt4">
       <div className="abt5" />
       <span className="abt6">Story of the Day</span>
-      <span className="abt7">Read more</span>
+      <Link to={link} className="abt7">Read more</Link>
       <span className="abt8">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam elit,
-        vel quis amet morbi blandit gravida etiam. Velit et dignissim bibendum
-        turpis volutpat sem nisi senectus ipsum. Donec aliquam.
+        {story}
       </span>
       <div className="abt9" />
     </div>
