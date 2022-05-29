@@ -783,9 +783,10 @@ border-radius: 6.00417px;
 .grid-container {
   display: grid;
   grid-template-columns: auto auto auto;
-
+  justify-content: space-around;
   padding: 10px;
-  column-gap: 76px;
+  width: 80%;
+  /* column-gap: 50px; */
   row-gap: 60px;
 }
 

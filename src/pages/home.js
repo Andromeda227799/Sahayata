@@ -1,14 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import FetchEventUpdates from "../api/hooks/Home"
+import FetchEventUpdates from "../api/hooks/Home";
 import EventsAndUpsCard from "../comps/EventsAndUpsCard";
 import Navbar from "../comps/Navbar";
 import StoryOfTheDay from "../comps/StoryOfTheDay";
 import img from "./assets/unsplash_uO1MUMn0Xzc.png";
+import imgStory from "./assets/unsplash_Z2YggU_u8mg.png";
 import "./sah.css";
 const Home = (props) => {
   const { homeEventsAndUpdates, homeStoryOfTheDay } = FetchEventUpdates();
-  const randomIndex = Math.floor(Math.random() * homeStoryOfTheDay.length);
+
   console.log(" EVENT AND UPDATES CHECK ", homeEventsAndUpdates);
   return (
     <>
@@ -25,7 +26,7 @@ const Home = (props) => {
       <title>sahayata</title>
       <Navbar />
       <section className="home">
-        <div style={{marginLeft:"220px"}}>
+        <div style={{ marginLeft: "220px" }}>
           <div className="row">
             <div className="col-sm-6" id="textt">
               <span id="sm">#Money at your doorstep</span>
@@ -36,9 +37,11 @@ const Home = (props) => {
                 A solution to digitize the SHG operations with its unique
                 disruptive transactions management system.
               </span>
-              <a href="" className="butt1" id="butt1">
-                Join now
-              </a>
+              <Link to={"/auth"}>
+                <a href="" className="butt1" id="butt1">
+                  Join now
+                </a>
+              </Link>s
             </div>
             <div className="col-sm-6" id="imgg">
               <img
@@ -69,8 +72,8 @@ const Home = (props) => {
             authentication features as well.
           </span>
           <StoryOfTheDay
-            key={homeStoryOfTheDay[randomIndex].id}
-            story={homeStoryOfTheDay[randomIndex].info}
+            key={1}
+            story={homeStoryOfTheDay}
           />
         </div>
       </section>
@@ -86,13 +89,13 @@ const Home = (props) => {
             Events and updates
           </a>
           <div className="home-events-grid-container">
-            {homeEventsAndUpdates.map((item, id) => {
+            {homeEventsAndUpdates&&homeEventsAndUpdates.map((item, id) => {
               return (
                 <EventsAndUpsCard
-                  img={item.img}
-                  link={item.link}
-                  info={item.info}
-                  key={item.key}
+                  img={imgStory}
+                  link={"/"}
+                  info={item.description}
+                  key={id}
                 />
               );
             })}

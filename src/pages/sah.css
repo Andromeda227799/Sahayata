@@ -130,6 +130,29 @@ body {
   flex-grow: 0;
   margin: 0px 10px;
 }
+#nav4 {
+  position: absolute;
+  width: 138px;
+  height: 36px;
+  left: 440px;
+  top: 0px;
+  text-decoration: none;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 36px;
+  /* identical to box height */
+
+  color: #ffffff;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 3;
+  flex-grow: 0;
+  margin: 0px 10px;
+}
 
 #butt {
   background-color: #06b58c; /* Green */
@@ -138,9 +161,9 @@ body {
   padding: 8px 15px;
   text-align: center;
   text-decoration: none;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
   font-size: 15px;
   font-family: "Poppins";
@@ -154,6 +177,7 @@ body {
 #nav5 {
   position: absolute;
   left: -860px;
+  top:-5px;
 }
 #imgg {
   margin: 0%;
@@ -1538,4 +1562,76 @@ input[type="submit"]:hover {
   font-size: 16px;
   opacity: 1;
   text-align: left;
+}
+
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* padding: 50px; */
+  font-family: "poppins";
+}
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 900px;
+  border-bottom: 1.41636px solid #e5e5e5;
+  padding-bottom: 30px;
+}
+.profile-info-header {
+  font-size: 34px;
+  color: #051733;
+  width: 60%;
+  border-bottom: 1.41636px solid #e5e5e5;
+  padding-bottom: 10px;
+  padding-top: 50px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+.profile-info-details{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  padding: 36px;
+  /* padding-left: ; */
+  width: 60%;
+  font-size: 18px;
+}
+.profile-info-detail{
+  font-weight: bold;
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  margin-block: 5px;
+}
+.profile-info-detail-2{
+  font-weight: normal;
+}
+.profile-info-buttons{
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  width: 40%;
+  justify-content: space-between;
+}
+.profile-info-button{
+  background-color: #ccc;
+  padding: 15px;
+  border-radius: 25px;
+  cursor: pointer;
+}
+.profile-shg1{
+  padding-top: 35px;
+  font-size: 22px;
+  width: 60%;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  border-top: 1.41636px solid #e5e5e5;
+  padding-bottom: 25px;
+}
+.profile-shg-cards{
+  padding-top: 20px;
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function StoryOfTheDay({link="",story}) {
+function StoryOfTheDay({link="/",story}) {
   return (
     <div className="abt4">
       <div className="abt5" />

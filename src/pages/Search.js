@@ -1,58 +1,29 @@
 import React from "react";
+import SearchShg from "../api/hooks/searchSHGhook";
+import Navbar from "../comps/Navbar";
 import SearchInfo from "../comps/SearchInfo";
 import SearchResCard from "../comps/SearchResCard";
-const axios = require('axios');
-const temp=[];
+
+
 export default function Search() {
   const [search, setSearch] = React.useState("");
-  const [apiRes, setapiRes] = React.useState([]);
-  const handleSearch=(s)=>{
-    console.log("LOGS ",s );
-    axios.post('http://127.0.0.1:5000/searchShg',{
-      "location":s
-    })
-    .then(function (response) {
-      console.log(response.data.message)
-      response.data.message.forEach((element,id) => {
-        temp.push(element);
-        
-      });
-      setapiRes(temp);
-      console.log("FINAL API RES ",apiRes);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-  }
-  
+  const { callApi, result } = SearchShg();
+
+console.log("from search body",result)
+  const handleSearch = (s) => {
+    console.log("LOGS ", s);
+    callApi(s);
+  };
+
   const [selected, setselected] = React.useState(0);
-  const handleClick=(e)=>{
-      setselected(e);
-  }
+  const handleClick = (e) => {
+    setselected(e);
+  };
   return (
     <div
       style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
     >
-      <header className="Header_header__omCkM">
-        <div className="topnav">
-          <a id="nav" className="active" href="">
-            Self-help groups
-          </a>
-          <a id="nav1" href="">
-            About Us
-          </a>
-          <a id="nav2" href="">
-            Events
-          </a>
-          <a id="nav3" href="">
-            Contact Us
-          </a>
-          <a href="" className="butt" id="butt">
-            Join now
-          </a>
-          <img src="./assets/loup.svg" alt="logo" id="nav5" />
-        </div>
-      </header>
+      <Navbar />
       <a style={{ marginTop: "70px", fontSize: "36px", fontFamily: "poppins" }}>
         Self-Help Groups
       </a>
@@ -74,10 +45,12 @@ export default function Search() {
           }}
           type="text"
           id="fname"
-          onChange={(e)=>setSearch(e.target.value)}
+          onChange={(e) => setSearch(e.target.value)}
           placeholder="Search for group by location, name , occupation..... "
         />
-        <button className="search" onClick={()=>handleSearch(search)}>Search</button>
+        <button className="search" onClick={() => handleSearch(search)}>
+          Search
+        </button>
       </div>
       <div
         style={{
@@ -85,8 +58,8 @@ export default function Search() {
           flexDirection: "row",
           alignItems: "center",
           justifyContent: "flex-start",
-          marginRight:"280px",
-          marginBottom:"30px"
+          marginRight: "280px",
+          marginBottom: "30px",
         }}
       >
         <div style={{ fontWeight: "bold", fontFamily: "poppins" }}>
@@ -94,7 +67,7 @@ export default function Search() {
         </div>
         <button
           className="filterButton"
-          onClick={()=>handleClick(1)}
+          onClick={() => handleClick(1)}
           style={{
             backgroundColor: selected == 1 ? "#06b58c" : "#EAEBF1",
             color: selected == 1 ? "white" : "black",
@@ -104,7 +77,7 @@ export default function Search() {
         </button>
         <button
           className="filterButton"
-          onClick={()=>handleClick(2)}
+          onClick={() => handleClick(2)}
           style={{
             backgroundColor: selected == 2 ? "#06b58c" : "#EAEBF1",
             color: selected == 2 ? "white" : "black",
@@ -114,7 +87,7 @@ export default function Search() {
         </button>
         <button
           className="filterButton"
-          onClick={()=>handleClick(3)}
+          onClick={() => handleClick(3)}
           style={{
             backgroundColor: selected == 3 ? "#06b58c" : "#EAEBF1",
             color: selected == 3 ? "white" : "black",
@@ -124,7 +97,7 @@ export default function Search() {
         </button>
         <button
           className="filterButton"
-          onClick={()=>handleClick(4)}
+          onClick={() => handleClick(4)}
           style={{
             backgroundColor: selected == 4 ? "#06b58c" : "#EAEBF1",
             color: selected == 4 ? "white" : "black",
@@ -135,20 +108,22 @@ export default function Search() {
         <button className="clearFilter">Clear Filter</button>
       </div>
       <div class="grid-container">
-        {apiRes.length>1?apiRes.map((val, id) => {
-          console.log(val.description);
-          return (
-            <SearchResCard
-              key={id}
-              head={val.name}
-              location={val.location}
-              avgIncome={val.average_annual_income}
-              range={val.range}
-              assurance={val.assurance_rate}
-              // distance={val.distance}
-            />
-          );
-        }):""}
+        {result.length >=1
+          ? result.map((val, id) => {
+              console.log(val.description);
+              return (
+                <SearchResCard
+                  key={id}
+                  head={val.name}
+                  location={val.location}
+                  avgIncome={val.average_annual_income}
+                  range={val.range}
+                  assurance={val.assurance_rate}
+                  // distance={val.distance}
+                />
+              );
+            })
+          : ""}
       </div>
       <div>
         <SearchInfo
