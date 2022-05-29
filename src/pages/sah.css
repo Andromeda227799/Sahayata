@@ -22,19 +22,54 @@ body {
   background-color: #051733;
 }
 .topnav {
+  background-color: #051733;
+  height: 100px;
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
-  padding: 0px;
-  font-size: 24px;
-  position: absolute;
-  width: 637px;
-  height: 36px;
-  left: 885px;
-  top: 32px;
+  color: #fff;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 9;
 }
+.navbar-navs{
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  font-size: 24px;
+  font-family: "poppins";
+  width: 70%;
+  /* background-color: gold; */
+  justify-content: space-evenly;
+}
+.navbar-logo{
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  width: 30%;
+  padding: 20px;
+}
+.navbar-item{
+  color: white;
+  text-decoration: none;
+}
+.navbar-item-button{
+  padding: 15px;
+  background-color: #06b58c;
+  border-radius: 5px;
+  color: white;
+  text-decoration: none;
+}
+Link{
+  text-decoration: none;
+  color: white;
+}
+.link-nav{
 
+  color: white;
+}
 #nav {
   text-decoration: none;
   font-family: "Poppins", sans-serif;
@@ -178,6 +213,9 @@ body {
   position: absolute;
   left: -860px;
   top:-5px;
+}
+.col-sm-6{
+  margin-top: 100px;
 }
 #imgg {
   margin: 0%;

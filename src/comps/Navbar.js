@@ -12,51 +12,35 @@ function Navbar() {
   );
 
   return (
-    <header className="Header_header__omCkM">
+    // <header className="Header_header__omCkM">
       <div className="topnav">
-        <Link to={"/search"} id="nav" className="active">
-          {/* <a id="nav" className="active" href=""> */}
-          Self-help groups
-          {/* </a> */}
-        </Link>
-        <Link to={"/"}>
-          <a id="nav1" href="">
-            About Us
-          </a>
-        </Link>
-        <a
-          id="nav2"
-          href=""
-          onClick={() => {
-            debugger;
-          }}
-        >
-          Events
-        </a>
-        <a id="nav3" href="">
-          Contact Us
-        </a>
-        {loggedIn ? (
-          <Link to={"/profile"}>
-            <a id="nav4" href="">
-              Profile
-            </a>
+        <div className="navbar-logo">
+          <Link to={"/"}>
+            <img
+              
+              src={img}
+              alt="logo"
+              className="navbar-logo-img"
+            />
+          </Link>
+        </div>
+        <div className='navbar-navs'>
+          <Link className="link-nav" to={"/search"}><div className='navbar-item'>Self-Help Groups</div></Link>
+          <Link className="link-nav" to={"/"}><div className='navbar-item'>About US</div></Link>
+          <Link  className="link-nav" to={"/"}><div className='navbar-item'>Events</div></Link>
+          <Link className="link-nav" to={"/"}><div className='navbar-item'>Contact US</div></Link>
+          
+          {loggedIn ? (
+          <Link className="link-nav" to={"/profile"}>
+            <div className='navbar-item'>Contact US</div>
           </Link>
         ) : (
-          // <Link to={"/auth"}>
-          <a href="/auth" className="butt" id="butt">
-            Join now
-          </a>
-          // </Link>
+          <Link className="link-nav" to={"/auth"}><div className='navbar-item-button'>Join Now</div></Link>
         )}
-        {/* <div styles={{ position:"absolute",marginLeft: "425px"}}>
-        <Button styles={{left: "4025px"}} text={"Join Now"} ></Button>
-        </div> */}
-        <Link to={"/"}>
-          <img style={{ marginLeft: "40px" }} src={img} alt="logo" id="nav5" />
-        </Link>
+        </div>
+        
       </div>
-    </header>
+    // </header>
   );
 }
 

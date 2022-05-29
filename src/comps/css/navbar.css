@@ -1,0 +1,25 @@
+.navbar-logo{
+
+}
+.navbar-navs{
+
+}
+.navbar-item{
+
+}
+.topnav{
+    background-color: #051733;
+  height: 100px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  color: #fff;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+.Header_header__omCkM{
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+}
